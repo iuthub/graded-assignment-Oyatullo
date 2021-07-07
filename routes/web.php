@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/','ToDoListController@getHome');
+Route::get('/register','ToDoListController@postRegister');
+Route::get('/signin','ToDoListController@signIn');
+
+Route::get('/home',  'ToDoListController@getHome')->name('getRegister');
+
+Route::get('/signin',function (){
+
 });
+
+/*Route::post('/home', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+
+
+
+//Route::post('/','ToDoListController@postRegister');
+//Route::get('/','ToDoListController@getShow');
+//Route::get('/','ToDoListController@getDelete');
+//Route::get('/','ToDoListController@postDelete');
+
